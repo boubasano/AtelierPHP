@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // grace à la fonction fetch('ma page .php ') dans lequel se trouve notre requete on demande au navigateur de nous garder notre requete
+    // le navigateur garde donc la requete sous l'objet promise
+    let promiseFetch = fetch('BDD_PDO.php');
+
+    // la fonction then() prend en parametre une fonction afin de recuperer ma requete
+    // sous format json()
+    promiseFetch.then( rep =>{
+        // reponse de ma requete sous format json
+        let promiseJson = rep.json();
+        // j'utilise encore then si je veux travailler sur de données en particulier
+        //dans notre cas on veut le titre du film qui se situe à la position 3 de notre tableau
+        promiseJson.then( genres => {
+            console.log(genres);
+        });
+    });
+</script>
+
+</body>
+</html>

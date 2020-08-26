@@ -1,0 +1,28 @@
+<?php
+
+/*
+* Créer un tableau contenant des infos sur des personnes.
+*
+* Encoder les personnes suivantes:
+* vincent cassel 53    films: couleur pourpre, la haine
+* marion cotillard 44  films: taxi, batman
+* roschdy zem 54       films: chouchou, go fast, 36 quai des orfèvres
+*
+* Ensuite, récupérer les films de marion cotillard triés dans l'orde alpha.
+*
+* Récupérer également l'age de roschdy zem
+*/
+
+$cinema = [
+     "vincent cassel" => ["age" => 53, "films" => ["couleur pourpre","la haine"]],
+     "marion cotillard" => ["age" => 44, "films" => ["taxi","batman"]],
+     "roschdi zem" => ["age" => 54, "films" => ["chouchou","go fast","36 quai des orfèvres"]]
+];
+$acteurs = $cinema["roschdi zem"]["age"];
+var_dump($acteurs);
+
+$cinema = $cinema["marion cotillard"]["films"];
+sort($cinema);
+
+
+var_dump($cinema);

@@ -1,0 +1,29 @@
+<?php
+
+$string = "Belgique, France, Angleterre, Pays-bas";
+
+// a. En utilisant les fonctioncs qui vont bien, afficher cette chaine par ordre alphabétique
+// on transforme cette chaine de caractere en tableau
+$pays = explode(", " , $string);
+
+// on trie par ordre croissant
+sort($pays);
+
+// on transforme ce tableau en chaine
+$string = implode(", ", $pays);
+
+var_dump($string);
+// b. Afficher une chaine avec le dernier et le premier pays pour les pays que vous classerez d'abord
+//    dans l'ordre alphabétique => doit donner: "pays-bas***angleterre"
+/*$string = array_reverse($string);
+*/
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,22 @@
+<?php
+// Calculer grace à une boucle $n à la puissance $p
+
+$n=3;
+$resultat = $n;
+$p=2;
+
+for($i=1;  $i<$p; $i++) {
+    $resultat *= $n;
+}
+echo $n." puissance ". $p. " = ". $resultat;
+
+$n=
+
+
+
+
+
+
+
+
+

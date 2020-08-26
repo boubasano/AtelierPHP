@@ -1,0 +1,67 @@
+<?php
+
+/**
+ * Faire deviner un nombre aléatoire entre 1 et 100 à l'utilisateur.
+ *
+ * Ex:
+ *
+ * Entrez un nombre: 40
+ * Plus grand !
+ * Entrez un nombre: 60
+ * Plus petit !
+ * Entrez un nombre: 50
+ * Plus grand !
+ * Entrez un nombre: 57
+ * OUI VOUS AVEZ GAGNE, LE NOMBRE RECHERCHE ETAIT BIEN 57.
+ * Voulez-vous recommencer la partie ? ( O / N )
+ * O
+ *
+ * ... On recommence
+ */
+
+
+//Generation de nombre aleatoire
+
+$choix=1;
+
+do{
+    $nombreAleatoire = random_int(1, 100);
+    echo "Entrez un nombre entre 1 et 100";
+    echo "\n";
+    $choix= readline();
+
+    //je fais la verification du nombre entré par l'utilisateur et celui correspondant au random
+    if ($choix<$nombreAleatoire){
+        echo "c'est plus grand \n";
+    }elseif ($choix>$nombreAleatoire){
+        echo "c'est plus petit  \n";
+    }else echo "Bingo, vous avez gagné \n" ;
+}while($nombreAleatoire != $choix);
+
+// je demande à l'utilisateur de recommencer la partie s'il le souhaite
+
+    echo "Voulez-vous recommencer la partie ? ( O / N )";
+    echo "\n";
+    $recommencer = readline();
+// cette boucle permet à l'utilisateur de recommencer la partie
+    do{
+        $nombreAleatoire = random_int(1, 100);
+        echo "Entrez un nombre entre 1 et 100";
+        echo "\n";
+        $choix= readline();
+
+        //je fais la verification du nombre entré par l'utilisateur et celui correspondant au random
+        if ($choix<$nombreAleatoire){
+            echo "c'est plus grand \n";
+        }elseif ($choix>$nombreAleatoire){
+            echo "c'est plus petit  \n";
+        }else echo "BINGO!!! vous avez gagné \n" ;
+    }
+while ($recommencer == "O");
+    // je redemande à l'utilisateur de recommencer la partie s'il le souhaite
+echo "Voulez-vous recommencer la partie ? ( O / N )";
+echo "\n";
+
+
+
+

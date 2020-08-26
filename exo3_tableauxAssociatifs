@@ -1,0 +1,40 @@
+<?php
+
+// Créer une liste de films sous forme de tableau associatif
+// clé: titre du film, valeur, caractéristiques du film ( tab assoc avec realisateur,acteurs,annee de sortie )
+// Ajouter 3 films dedans: dracula, frankenstein et kung fu panda
+// Affichage realisateurs du film 'kung fu panda'
+
+$films = [
+    "Amistad" => ["realisateur" =>"Steven Spielberg",
+                  "acteurs" => ["Anthony hopkins","Morgane Freeman"],
+                  "année de sortie" => "1995"],
+];
+
+$films = [
+    "dracula" => ["realisateur" =>"Francis Ford Coppola",
+                "acteurs" => ["Anthony hopkins"," Keanu Reeves "],
+                "année de sortie" => "1982"],
+];
+
+$films = [
+    "frankenstein" => ["realisateur" =>" Kenneth Branagh",
+    "acteurs" => ["Robert De Niro","Kenneth Branagh"],
+    "année de sortie" => "1994"],
+];
+
+$films = [
+    "kung fu panda" => ["realisateur" =>"John Stevenson",
+    "acteurs" => ["Angelina Jolie","Jackie Chan"],
+    "année de sortie" => "2008"],
+];
+
+implode(", ", $films);
+$films = $films["kung fu panda"]["realisateur"];
+
+var_dump($films);
+
+
+
+
+

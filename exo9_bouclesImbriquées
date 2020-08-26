@@ -1,0 +1,35 @@
+<?php
+
+/*
+ * Avec une boucle
+ * a.   Créer un $tableau de 10 elements.
+ *      Chaque élément sera un tableau de 5 nombres aléatoires compris entre 1 et 100
+ *  $tableau = []
+ *        $ligne = []
+ *        $ligne[] = le nbre aléat
+
+*/
+
+$tableau = [];
+
+
+for($i=1; $i<=10; $i++){
+    $lignes = [];
+    for ($x=1; $x<=5; $x++){
+        $lignes [] = random_int(1, 100);
+    }
+    $tableau [] = $lignes;
+}
+
+foreach ($tableau as $tab){
+    $tableau[] = implode(", ", $tab);
+}
+
+var_dump($tableau);
+
+
+
+
+
+
+

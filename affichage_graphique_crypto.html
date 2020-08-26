@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="listeCryptos">
+
+</div>
+
+
+
+
+<canvas id="myChart" width="800" height="200"></canvas>
+
+
+<script>
+    // variable globale qui me permet d'acceder à mes données cryptos
+    let liste = [];
+
+    let chargeDonneesEtGeneration = async (nombreJours) => {
+
+        // Charge données
+        let resp = await fetch('travail_crypto.php?periode='+nombreJours);
+        liste = await resp.json();
+
+        // trie des elements
+        liste = liste.sort((elemA, elemB) => {
+            if (elemA > elemB) {
+                return -1;
+            } else if (elemA < elemB) {
+                return 1;
+            } else {
+                return 0;
+            }
+        });
+        // Génère ds mon bouton la liste des cryptos
+
+       liste.forEach(element => {
+
+            let button = document.createElement('button');
+            button.setAttribute("onclick", "afficheGraphique('"+ element.symbole +"')");
+            button.innerHTML = element.nom;
+            document.querySelector('#listeCryptos').appendChild(button);
+        });
+
+    };
+
+    let  afficheGraphique =  async (symbolElement) => {
+        // Charge données
+        let resp = await fetch('cryptos.php?symbole='+symbolElement);
+        liste = await resp.json();
+
+        let labels = liste.map(liste => {
+            return liste.date_jour;
+        });
+        console.log(labels); //
+
+        // Map JSON values back to values array
+        let values = liste.map(liste => {
+            return parseFloat(liste.valeur);
+        });
+        console.log(values); //
+
+
+        buildChart(labels, values);
+    };
+
+    function buildChart(labels, values) {
+        let content = document.querySelector("#myChart").getContext('2d');
+        let myChart = new Chart(content, {
+
+            type: 'line',
+            data: {
+                labels: labels, // Our labels
+                datasets: [{
+                    label: 'Variation',
+                    backgroundColor: 'lightblue',
+                    data: values
+                }]
+            },
+        });
+        return myChart;
+    };
+
+
+    chargeDonneesEtGeneration(7);
+    afficheGraphique();
+
+</script>
+
+</body>
+</html>
